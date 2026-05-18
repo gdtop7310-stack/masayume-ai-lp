@@ -7,17 +7,17 @@
 
 <style>
   :root{
-    --navy:#0f2b45;
-    --navy-2:#153552;
-    --navy-ink:#0a1f33;
-    --cream:#f6efe2;
-    --cream-2:#efe6d2;
-    --paper:#fbf7ef;
-    --orange:#ef7a28;
-    --orange-2:#f39233;
-    --yellow:#ffd24a;
-    --line:#1f3e5b;
-    --muted:#6a7888;
+    --navy:#07100c;
+    --navy-2:#0d1a14;
+    --navy-ink:#e8fff0;
+    --cream:#101612;
+    --cream-2:#1b2720;
+    --paper:#090d0b;
+    --orange:#06c755;
+    --orange-2:#19e06b;
+    --yellow:#9cffb5;
+    --line:#20352a;
+    --muted:#8da697;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
@@ -66,25 +66,111 @@
   /* ——— Hero ——— */
   .hero{
     position:relative;
-    background:var(--paper);
-    padding:0 0 18px;
+    background:
+      radial-gradient(circle at 50% 8%, rgba(58,132,231,.16), transparent 34%),
+      linear-gradient(180deg,#fff 0%,#f3f8ff 72%,#fff 100%);
+    padding:26px 20px 32px;
+    text-align:center;
   }
-  .hero-img{
+  .hero-logo{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin:2px auto 22px;
+    color:#121a28;
+    font-family:system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:.02em;
+  }
+  .hero-logo .chain{
+    width:30px;
+    height:18px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#2d65d8,#5bb8ff);
+    position:relative;
+    transform:rotate(-12deg);
+    box-shadow:inset 0 0 0 5px rgba(255,255,255,.55);
+  }
+  .hero-video-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    padding:10px;
+    background:linear-gradient(135deg,#6ba5ff,#eaf4ff 52%,#fff);
+    box-shadow:0 24px 46px rgba(38,103,190,.22);
+  }
+  .hero-video-card::before{
+    content:"";
+    position:absolute;
+    left:18px;
+    bottom:16px;
+    width:3px;
+    height:46px;
+    border-radius:999px;
+    background:#fff;
+    z-index:2;
+  }
+  .hero-video-frame{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    aspect-ratio:16/10;
+    background:#071827;
+    box-shadow:0 12px 28px rgba(8,26,47,.22);
+  }
+  .hero-video-frame video{
     width:100%;
+    height:100%;
     display:block;
+    object-fit:cover;
+  }
+  .hero-pill{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-height:52px;
+    margin:20px auto 20px;
+    padding:0 22px;
+    border-radius:999px;
+    background:linear-gradient(90deg,#245fc1,#58b0ff);
+    color:#fff;
+    font-size:15px;
+    font-weight:900;
+    box-shadow:0 12px 28px rgba(36,95,193,.25);
+  }
+  .hero-pill::before{
+    content:"";
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 0 5px rgba(255,255,255,.16);
+  }
+  .hero-title{
+    margin:0;
+    color:#12182a;
+    font-size:34px;
+    line-height:1.2;
+    font-weight:900;
+    letter-spacing:.01em;
+  }
+  .hero-title em{
+    font-style:normal;
+    color:#2f7dea;
   }
   .hero-seminar-link{
-    position:absolute;
-    left:7%;
-    right:7%;
-    bottom:20px;
+    position:relative;
+    width:min(100%, 340px);
+    margin:24px auto 0;
     min-height:56px;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
     gap:3px;
-    border-radius:14px;
+    border-radius:16px;
     background:linear-gradient(180deg,#ff9b3d 0%,#f37818 100%);
     color:#fff;
     text-decoration:none;
@@ -92,8 +178,8 @@
     font-weight:900;
     line-height:1.15;
     letter-spacing:.02em;
-    border:2px solid #073d54;
-    box-shadow:0 7px 0 #08364b, 0 16px 28px rgba(0,55,77,.28), inset 0 1px 0 rgba(255,255,255,.35);
+    border:0;
+    box-shadow:0 8px 0 #b85611, 0 18px 34px rgba(239,122,40,.28), inset 0 1px 0 rgba(255,255,255,.35);
     z-index:2;
     overflow:hidden;
   }
@@ -124,7 +210,7 @@
   }
   .hero-seminar-link:active{
     transform:translateY(2px);
-    box-shadow:0 4px 0 #08364b, 0 10px 20px rgba(0,55,77,.22), inset 0 1px 0 rgba(255,255,255,.35);
+    box-shadow:0 5px 0 #b85611, 0 10px 20px rgba(239,122,40,.22), inset 0 1px 0 rgba(255,255,255,.35);
   }
   .hero-banner{
     margin:14px 14px 0;
@@ -354,7 +440,7 @@
     padding:0 6px; border-radius:4px;
   }
   .gift .price-strike{
-    color:#ffd24a; font-weight:700; font-size:13px; margin:6px 0 18px;
+    color:#9cffb5; font-weight:700; font-size:13px; margin:6px 0 18px;
   }
   .gift .price-strike s{color:#8aa4bd; margin-right:8px}
   .gift-list{ list-style:none; padding:0; margin:0; display:grid; gap:10px; position:relative; z-index:1 }
@@ -373,7 +459,7 @@
     display:grid; place-items:center; color:#fff; font-weight:900; font-size:12px;
     margin-top:1px;
   }
-  .gift-list strong{ color:#ffd24a; font-weight:900 }
+  .gift-list strong{ color:#9cffb5; font-weight:900 }
   .gift-list li.gift-featured{
     display:grid;
     grid-template-columns:30px 1fr;
@@ -432,7 +518,7 @@
     border-radius:999px;
     background:rgba(255,210,74,.16);
     border:1px solid rgba(255,210,74,.34);
-    color:#ffd24a;
+    color:#9cffb5;
     font-size:11px;
     font-weight:900;
   }
@@ -496,7 +582,7 @@
   }
   .bonus-copy b{
     display:block;
-    color:#ffd24a;
+    color:#9cffb5;
     font-size:15px;
     line-height:1.45;
   }
@@ -577,7 +663,7 @@
     height:190px;
     background:radial-gradient(circle, rgba(255,210,74,.2), transparent 68%);
   }
-  .evidence .eyebrow{color:#ffd24a}
+  .evidence .eyebrow{color:#9cffb5}
   .evidence h2{
     color:#fff;
     font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
@@ -586,7 +672,7 @@
     line-height:1.35;
     margin:0 0 8px;
   }
-  .evidence h2 em{font-style:normal; color:#ffd24a}
+  .evidence h2 em{font-style:normal; color:#9cffb5}
   .evidence-lead{
     margin:0 0 18px;
     color:#b7c8da;
@@ -713,7 +799,7 @@
     color:#fff;
     overflow:hidden;
   }
-  .method-preview .eyebrow{color:#ffd24a}
+  .method-preview .eyebrow{color:#9cffb5}
   .method-preview .eyebrow .line{background:#ffd24a}
   .method-preview h2{color:#fff}
   .method-preview h2 em{color:#ff9a3c}
@@ -800,7 +886,7 @@
     background:#0a1f33; color:#fff; padding:36px 20px 40px;
   }
   .testi h2{color:#fff}
-  .testi .eyebrow{color:#ffd24a}
+  .testi .eyebrow{color:#9cffb5}
   .testi-viewport{ overflow:hidden; border-radius:16px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); }
   .testi-track{display:flex; transition:transform .5s cubic-bezier(.2,.8,.2,1)}
   .testi-card{flex:0 0 100%; padding:22px 20px; display:grid; gap:10px}
@@ -812,7 +898,7 @@
     border:2px solid #ffd24a;
   }
   .testi-card .name{font-weight:900}
-  .testi-card .role{font-size:11px; color:#ffd24a; font-weight:700}
+  .testi-card .role{font-size:11px; color:#9cffb5; font-weight:700}
   .testi-card .quote{
     font-size:13px; line-height:1.8; color:#cfd9e3;
     border-left:3px solid var(--orange);
@@ -829,7 +915,7 @@
     background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.2);
     cursor:pointer; display:grid; place-items:center;
   }
-  .arrow-btn:hover{background:rgba(255,210,74,.2); color:#ffd24a}
+  .arrow-btn:hover{background:rgba(255,210,74,.2); color:#9cffb5}
 
   /* ——— FAQ ——— */
   .faq{display:grid; gap:10px; margin-top:14px}
@@ -858,7 +944,7 @@
     border-top:3px dashed #0f2b45;
   }
   .final .badge-limit{
-    display:inline-block; background:#0f2b45; color:#ffd24a;
+    display:inline-block; background:#0f2b45; color:#9cffb5;
     font-family:"Impact","Arial Black",system-ui,sans-serif; font-size:11px;
     padding:6px 14px; border-radius:999px; letter-spacing:.1em;
   }
@@ -871,7 +957,7 @@
     font-family:"Impact","Arial Black",system-ui,sans-serif;
   }
   .count-cell{
-    background:#0f2b45; color:#ffd24a;
+    background:#0f2b45; color:#9cffb5;
     min-width:58px; padding:10px 6px;
     border-radius:10px;
   }
@@ -892,7 +978,7 @@
   }
   .sns-kicker{
     display:inline-flex; align-items:center; gap:6px;
-    color:#ffd24a; font-weight:900; font-size:11px; letter-spacing:.12em;
+    color:#9cffb5; font-weight:900; font-size:11px; letter-spacing:.12em;
     border:1px solid rgba(255,210,74,.28);
     background:rgba(255,210,74,.08);
     padding:7px 10px; border-radius:999px;
@@ -978,7 +1064,7 @@
     line-height:1.7; font-weight:700;
   }
   .foot .links{display:flex; gap:14px; margin-bottom:14px}
-  .foot .links a{color:#ffd24a; text-decoration:none; border-bottom:1px dotted currentColor}
+  .foot .links a{color:#9cffb5; text-decoration:none; border-bottom:1px dotted currentColor}
 
   /* ——— Sticky CTA ——— */
   .sticky-cta{
@@ -1006,7 +1092,270 @@
     background-size:10px 10px;
   }
 
+  /* ——— Matrix green theme overrides ——— */
+  body{
+    background:
+      radial-gradient(circle at 50% -10%, rgba(6,199,85,.22), transparent 32%),
+      linear-gradient(180deg,#050706 0%,#101410 48%,#050706 100%);
+    color:#e8fff0;
+  }
+  .page{
+    background:#090d0b;
+    color:#e8fff0;
+    box-shadow:0 28px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(6,199,85,.18);
+  }
+  .page::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    opacity:.34;
+    background-image:
+      linear-gradient(180deg, rgba(6,199,85,.16) 0 1px, transparent 1px 22px),
+      linear-gradient(90deg, rgba(6,199,85,.11) 0 1px, transparent 1px 22px),
+      radial-gradient(circle at 20% 12%, rgba(6,199,85,.2), transparent 22%),
+      radial-gradient(circle at 90% 34%, rgba(156,255,181,.12), transparent 25%);
+    background-size:22px 22px, 22px 22px, 100% 100%, 100% 100%;
+    animation:matrixDrift 18s linear infinite;
+  }
+  @keyframes matrixDrift{
+    from{background-position:0 0,0 0,0 0,0 0}
+    to{background-position:0 220px,220px 0,0 0,0 0}
+  }
+  .topbar,
+  .hero,
+  .section,
+  .evidence,
+  .gift,
+  .reels,
+  .method-preview,
+  .testi,
+  .final,
+  .foot{
+    position:relative;
+    z-index:1;
+  }
+  .topbar{
+    background:rgba(8,13,10,.92);
+    border-bottom:1px solid rgba(6,199,85,.26);
+    backdrop-filter:blur(14px);
+  }
+  .brand{color:#e8fff0}
+  .brand .mark{
+    background:#06c755;
+    color:#031008;
+    box-shadow:0 0 18px rgba(6,199,85,.42);
+  }
+  .topbar .cta-mini,
+  .hero-seminar-link,
+  .cta-big,
+  .sticky-cta .sc-btn,
+  .sticky-cta .sc-btn.line{
+    background:linear-gradient(180deg,#1af06d 0%,#06c755 54%,#049a42 100%);
+    color:#fff;
+    border:1px solid rgba(156,255,181,.45);
+    box-shadow:0 6px 0 #02652e, 0 16px 34px rgba(6,199,85,.3), inset 0 1px 0 rgba(255,255,255,.28);
+  }
+  .topbar .cta-mini{
+    box-shadow:0 4px 0 #02652e, 0 10px 22px rgba(6,199,85,.22);
+  }
+  .hero{
+    background:
+      linear-gradient(180deg, rgba(6,199,85,.12), rgba(9,13,11,.72) 38%, #0c130f 100%),
+      repeating-linear-gradient(90deg, rgba(6,199,85,.12) 0 1px, transparent 1px 38px),
+      #0a0f0c;
+  }
+  .hero-logo{color:#e8fff0}
+  .hero-logo .chain{
+    background:linear-gradient(135deg,#06c755,#9cffb5);
+    box-shadow:inset 0 0 0 5px rgba(0,0,0,.34), 0 0 20px rgba(6,199,85,.42);
+  }
+  .hero-video-card{
+    background:linear-gradient(135deg, rgba(6,199,85,.92), rgba(20,28,22,.95) 46%, rgba(156,255,181,.26));
+    border:1px solid rgba(156,255,181,.36);
+    box-shadow:0 24px 54px rgba(0,0,0,.52), 0 0 42px rgba(6,199,85,.22);
+  }
+  .hero-video-card::before{background:#9cffb5; box-shadow:0 0 12px rgba(156,255,181,.75)}
+  .hero-video-frame{background:#020403; box-shadow:0 12px 28px rgba(0,0,0,.42)}
+  .hero-pill{
+    background:linear-gradient(90deg,#064d25,#06c755);
+    color:#f3fff6;
+    box-shadow:0 12px 28px rgba(6,199,85,.25);
+  }
+  .hero-title{color:#f3fff6; text-shadow:0 0 18px rgba(6,199,85,.14)}
+  .hero-title em,
+  .hero-pill::before{color:#a8b9ad}
+  .hero-seminar-link:active,
+  .cta-big:active,
+  .sticky-cta .sc-btn:active{
+    box-shadow:0 3px 0 #02652e, 0 10px 20px rgba(6,199,85,.24), inset 0 1px 0 rgba(255,255,255,.25);
+  }
+  .hero-banner{
+    background:linear-gradient(180deg,#111c16,#0b120e);
+    border-color:rgba(6,199,85,.5);
+    box-shadow:4px 4px 0 #06c755;
+  }
+  .hero-banner .tag{background:#06c755; color:#031008}
+  .hero-banner h1{color:#e8fff0}
+  .hero-banner h1 em,
+  .about-copy strong{background:linear-gradient(transparent 62%, rgba(6,199,85,.42) 62%)}
+  .hero-banner .sub,
+  .section,
+  .case p,
+  .cp p,
+  .qa .answer{color:#b8c7be}
+  .section{
+    background:#101612;
+  }
+  .section h2,
+  .case h3,
+  .cp h3,
+  .qa summary{color:#f1fff5}
+  .section h2 em,
+  .eyebrow,
+  .reels h2 em,
+  .evidence h2 em,
+  .method-preview h2 em,
+  .testi .eyebrow,
+  .foot .links a{color:#37ff82}
+  .eyebrow .line{background:#37ff82}
+  .reels,
+  .gift,
+  .evidence,
+  .method-preview,
+  .testi,
+  .foot{
+    background:
+      radial-gradient(circle at 15% 0%, rgba(6,199,85,.2), transparent 34%),
+      radial-gradient(circle at 88% 22%, rgba(156,255,181,.1), transparent 30%),
+      linear-gradient(180deg,#0b100d 0%,#050806 100%);
+  }
+  .reels::before{
+    background-image:
+      linear-gradient(rgba(6,199,85,.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6,199,85,.06) 1px, transparent 1px);
+  }
+  .reel-card,
+  .gift-list li,
+  .bonus-preview,
+  .bonus-copy,
+  .evidence-card,
+  .mentor-box,
+  .method-card,
+  .testi-viewport,
+  .sns-card,
+  .sns-total .stat{
+    background:linear-gradient(180deg, rgba(255,255,255,.075), rgba(6,199,85,.035));
+    border-color:rgba(156,255,181,.2);
+    box-shadow:0 18px 44px rgba(0,0,0,.34), inset 0 0 0 1px rgba(6,199,85,.04);
+  }
+  .reel-card.active{box-shadow:0 22px 60px rgba(0,0,0,.48), 0 0 0 1px rgba(6,199,85,.58)}
+  .reel-dot.active,
+  .dot.active{background:#06c755}
+  .reel-meta .metric,
+  .gift-list strong,
+  .gift .price-strike,
+  .bonus-preview-head span,
+  .bonus-copy b,
+  .evidence .eyebrow,
+  .gift-featured h3,
+  .testi-card .role,
+  .sns-kicker{color:#9cffb5}
+  .gift .kicker,
+  .gift-list .check,
+  .evidence-card .pill,
+  .mentor-box .tag,
+  .badge.hot,
+  .qa summary::before,
+  .final .badge-limit,
+  .method-chip,
+  .step .num,
+  .count-cell,
+  .sns-metric{
+    background:#06c755;
+    color:#031008;
+    box-shadow:0 0 0 3px rgba(6,199,85,.12);
+  }
+  .gift h2 .box{background:#e8fff0; color:#06100b}
+  .gift-list li.gift-featured{
+    background:linear-gradient(180deg, rgba(6,199,85,.18), rgba(255,255,255,.045));
+    border-color:rgba(156,255,181,.38);
+  }
+  .gift-featured p,
+  .bonus-preview-head p,
+  .bonus-copy p,
+  .evidence-lead,
+  .mentor-box p,
+  .method-lead,
+  .method-caption,
+  .step p,
+  .reels-lead,
+  .reel-meta p,
+  .sns-lead,
+  .sns-total span,
+  .sns-platform small{color:#adc4b5}
+  .bonus-shot,
+  .evidence-shot,
+  .method-media,
+  .about-card,
+  .sns-shot-wrap{border-color:rgba(156,255,181,.18); background:#020403}
+  .case,
+  .cp,
+  .qa{
+    background:linear-gradient(180deg,#151b17,#0e130f);
+    border-color:rgba(156,255,181,.18);
+    box-shadow:0 14px 30px rgba(0,0,0,.22);
+  }
+  .case .avatar{
+    border-color:#06c755;
+    box-shadow:0 0 18px rgba(6,199,85,.28);
+  }
+  .badge{background:#1f3025; color:#9cffb5}
+  .cp{
+    border-color:rgba(6,199,85,.55);
+    box-shadow:4px 4px 0 #06c755;
+  }
+  .step:not(:last-child)::before{
+    background:repeating-linear-gradient(180deg,#06c755 0 4px,transparent 4px 8px);
+  }
+  .method-arrow{
+    color:#031008;
+    background:linear-gradient(180deg,#9cffb5,#06c755);
+  }
+  .method-note,
+  .sns-note,
+  .reel-note{
+    background:rgba(6,199,85,.1);
+    border-color:rgba(156,255,181,.22);
+    color:#caffd8;
+  }
+  .testi-card .av{
+    background:linear-gradient(135deg,#06c755,#9cffb5);
+    color:#031008;
+    border-color:#9cffb5;
+  }
+  .testi-card .quote{border-left-color:#06c755; color:#cbd8ce}
+  .qa summary::before{color:#031008}
+  .final{
+    background:
+      linear-gradient(180deg, rgba(6,199,85,.18), rgba(10,16,12,.98)),
+      #0b100d;
+    border-top:3px dashed rgba(6,199,85,.68);
+  }
+  .final h2{color:#f1fff5}
+  .final div[style]{color:#adc4b5 !important}
+  .count-cell small{color:#0d3f21}
+  .sns-proof h2 em{color:#37ff82}
+  .sns-card:hover{border-color:rgba(156,255,181,.42); box-shadow:0 22px 52px rgba(0,0,0,.4), 0 0 22px rgba(6,199,85,.1)}
+  .sns-mark.instagram,
+  .sns-mark.youtube,
+  .sns-mark.tiktok{background:linear-gradient(135deg,#06c755,#0a0f0c)}
+  .dots-bg{background-image:radial-gradient(#06c755 1.2px, transparent 1.2px)}
+
   @media (max-width:380px){
+    .hero{padding-left:16px; padding-right:16px}
+    .hero-title{font-size:30px}
     .hero-banner h1{font-size:22px}
     .gift h2{font-size:22px}
     .section h2{font-size:22px}
@@ -1022,15 +1371,30 @@
       <div class="mark">M</div>
       <div>MASAYUME <span style="color:var(--orange)">AI</span></div>
     </div>
-    <a class="cta-mini" href="https://utage-system.com/line/open/sr0DCHJvZSgM">📱 LINEで特典を受け取る</a>
+    <a class="cta-mini" href="https://utage-system.com/line/open/sr0DCHJvZSgM">📱 無料で解説動画を受け取る</a>
   </div>
 
   <!-- Hero -->
   <section class="hero">
-    <img class="hero-img" src="images/hero-company-quit.png" alt="AI動画で会社を辞めた">
+    <div class="hero-logo">
+      <span class="chain" aria-hidden="true"></span>
+      <span>Masayume AI</span>
+    </div>
 
-    <a class="hero-seminar-link" href="https://utage-system.com/line/open/sr0DCHJvZSgM" aria-label="LINEで特典を受け取る">
-      📱 LINEで特典を受け取る
+    <div class="hero-video-card">
+      <div class="hero-video-frame">
+        <video src="videos/about-quality.mp4" muted autoplay loop playsinline preload="metadata"></video>
+      </div>
+    </div>
+
+    <div class="hero-pill">未経験からAI動画で収益化</div>
+
+    <h1 class="hero-title">
+      <em>AI動画</em>で<br>会社を辞めた
+    </h1>
+
+    <a class="hero-seminar-link" href="https://utage-system.com/line/open/sr0DCHJvZSgM" aria-label="無料で解説動画を受け取る">
+      📱 無料で解説動画を受け取る
       <small>30秒で完了</small>
     </a>
   </section>
@@ -1140,7 +1504,7 @@
     </div>
 
     <a href="https://utage-system.com/line/open/sr0DCHJvZSgM" class="cta-big">
-      📱 LINEで特典を受け取る
+      📱 無料で解説動画を受け取る
       <span class="arrow">→</span>
       <small>30秒で完了</small>
     </a>
@@ -1149,14 +1513,14 @@
   <!-- About -->
   <section class="section">
     <div class="eyebrow">ABOUT<span class="line"></span></div>
-    <h2>ハイクオリティ動画が<br><em>たった2時間</em>で作れる</h2>
+    <h2>ハイクオリティ動画が<br><em>たった10分</em>で作れる</h2>
 
     <div class="about-card" id="videoCard">
       <video src="videos/about-quality.mp4" muted loop playsinline controls preload="metadata"></video>
     </div>
 
     <p class="about-copy">
-      未経験・初心者関係なく、<strong>たった2時間</strong>でプロ級のクオリティの動画が作れてしまう。<br>
+      未経験・初心者関係なく、<strong>たった10分</strong>でプロ級のクオリティの動画が作れてしまう。<br>
       その仕組みと最新のワークフローをすべて公開します。
     </p>
   </section>
@@ -1411,7 +1775,7 @@
 
     <div class="flow">
       <div class="step"><div class="num">1</div><div><h4>LINE友だち追加</h4><p>公式LINEを30秒で追加</p></div></div>
-      <div class="step"><div class="num">2</div><div><h4>LINEで特典を受け取る</h4><p>30秒で完了。公式LINEから特典を受け取れます</p></div></div>
+      <div class="step"><div class="num">2</div><div><h4>無料で解説動画を受け取る</h4><p>30秒で完了。公式LINEから解説動画を受け取れます</p></div></div>
       <div class="step"><div class="num">3</div><div><h4>講義動画をチェック</h4><p>60分の講義動画を確認し、プレゼントを受け取る</p></div></div>
       <div class="step"><div class="num">4</div><div><h4>あなたの1本目を投稿</h4><p>学んだ流れで最初のAI動画を公開</p></div></div>
     </div>
@@ -1420,7 +1784,7 @@
   <!-- Testimonials -->
   <section class="testi">
     <div class="eyebrow">USERS VOICE<span class="line"></span></div>
-    <h2>ユーザーの<em style="color:#ffd24a">声</em></h2>
+    <h2>ユーザーの<em style="color:#9cffb5">声</em></h2>
 
     <div class="testi-viewport">
       <div class="testi-track" id="track">
@@ -1493,7 +1857,7 @@
       <div class="count-cell"><b id="cd-s">59</b><small>SEC</small></div>
     </div>
     <a href="https://utage-system.com/line/open/sr0DCHJvZSgM" class="cta-big" style="max-width:340px">
-      📱 LINEで特典を受け取る
+      📱 無料で解説動画を受け取る
       <span class="arrow">→</span>
       <small>30秒で完了</small>
     </a>
@@ -1561,7 +1925,7 @@
 
 <!-- Sticky CTA -->
 <div class="sticky-cta">
-  <a href="https://utage-system.com/line/open/sr0DCHJvZSgM" class="sc-btn line">📱 LINEで特典を受け取る<br><small>30秒で完了</small></a>
+  <a href="https://utage-system.com/line/open/sr0DCHJvZSgM" class="sc-btn line">📱 無料で解説動画を受け取る<br><small>30秒で完了</small></a>
 </div>
 
 <script>
@@ -1679,7 +2043,7 @@ tick(); setInterval(tick,1000);
   setInterval(()=>{
     if(Math.random()<0.25 && n>8){
       n--;
-      badge.innerHTML = `⏱ 先着100名 / 残り<b style="color:#ffd24a"> ${n}名</b>`;
+      badge.innerHTML = `⏱ 先着100名 / 残り<b style="color:#9cffb5"> ${n}名</b>`;
     }
   }, 8000);
 })();
